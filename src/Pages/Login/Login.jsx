@@ -2,7 +2,7 @@ import React from 'react'
 import './../Login/Login.css'
 const Login = () => {
     return (
-        <>
+        <div className='Loginbody'>
             <div className='absolute top-5 left-10 sm:top-10 sm:left-20'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
                     <path d="M5.6875 12.1875H21.9375C22.153 12.1875 22.3597 12.2731 22.512 12.4255C22.6644 12.5778 22.75 12.7845 22.75 13C22.75 13.2155 22.6644 13.4222 22.512 13.5745C22.3597 13.7269 22.153 13.8125 21.9375 13.8125H5.6875C5.47201 13.8125 5.26535 13.7269 5.11298 13.5745C4.9606 13.4222 4.875 13.2155 4.875 13C4.875 12.7845 4.9606 12.5778 5.11298 12.4255C5.26535 12.2731 5.47201 12.1875 5.6875 12.1875Z" fill="white" />
@@ -29,7 +29,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
