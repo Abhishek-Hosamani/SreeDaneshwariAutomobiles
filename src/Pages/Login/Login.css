@@ -1,0 +1,11 @@
+body {
+    background-color: #0286D0;
+}
+
+
+
+.logincard input {
+    border: hidden;
+    border-bottom: 1px solid white;
+    border-width: 2px;
+}
