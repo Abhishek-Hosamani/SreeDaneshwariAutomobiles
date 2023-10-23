@@ -20,23 +20,33 @@ const ItemCard = (props) => {
                Lorem ipsum dolor sit 
             </p>
           </div>
-          <button class="bg-blue-600 hover:bg-blue-400 text-white font-semibold py-2 px-4 rounded">
-            Add to cart
-          </button>
-          <div className="py-3 p-2">
+       
+          {/* <div className="py-3 p-2">
             <h4 className="font-semibold text-blue-600 text-sm sm:font-medium sm:text-base">
               Quantity:
             </h4>
-          </div>
+          </div> */}
 
-          <div class="flex flex-row h-8 w-autorounded-lg relative">
-    <button data-action="decrement" class=" border-2 bg-white w-12 text-blue-600 border-blue-400 border-solid hover:text-gray-700 hover:bg-gray-400 rounded-l cursor-pointer ">
+          <div class="flex flex-row h-10 w-full relative">
+          <button class="bg-blue-600 hover:bg-blue-400 text-center text-white font-semibold ml-2 mb-1 p-1.5 px-5 rounded text-xs  w-25">
+            Add 
+          </button>
+          <button data-action="decrement" class=" border-2 ml-4 mb-1 bg-white w-7 text-blue-600 border-blue-400 border-solid hover:text-gray-700 hover:bg-gray-400 rounded-l cursor-pointer ">
+      <span class="m-auto text-2xl font-thin">−</span>
+    </button>
+    <input type="number" class="outline-none focus:outline-none text-center w-10 mb-1 border-solid border-2 bg-white font-semibold text-md border-blue-400 hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-blue-700 " name="custom-input-number" value="1"></input>
+    <button data-action="increment" class=" border-2 bg-white w-7 mb-1 text-blue-600 border-solid hover:text-gray-700 border-blue-400 hover:bg-gray-400 rounded-r cursor-pointer">
+    <span class="m-auto text-2xl font-thin">+</span>
+  </button>
+
+
+    {/* <button data-action="decrement" class=" border-2 bg-white w-12 text-blue-600 border-blue-400 border-solid hover:text-gray-700 hover:bg-gray-400 rounded-l cursor-pointer ">
       <span class="m-auto text-2xl font-thin">−</span>
     </button>
     <input type="number" class="outline-none focus:outline-none text-center w-20 border-solid border-2 bg-white font-semibold text-md border-blue-400 hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-blue-700 " name="custom-input-number" value="1"></input>
   <button data-action="increment" class=" border-2 bg-white w-12 text-blue-600 border-solid hover:text-gray-700 border-blue-400 hover:bg-gray-400 rounded-r cursor-pointer">
     <span class="m-auto text-2xl font-thin">+</span>
-  </button>
+  </button> */}
   </div>
 
 
