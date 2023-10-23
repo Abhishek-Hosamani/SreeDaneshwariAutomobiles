@@ -45,7 +45,7 @@ export const Categories = () => {
                     })
                 }
             </div>
-             
+
             <Footer />
 
         </div>
