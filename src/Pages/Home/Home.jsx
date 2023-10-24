@@ -37,8 +37,8 @@ export const Home = () => {
         <div className=''>
             <Header />
 
-            {/* <Carousel /> */}
-            <h2 className='text-center font-semibold text-xs sm:text-base'>Shop by Categories</h2>
+            <Carousel />
+            <h2 className='text-center mt-4 font-semibold text-xs sm:text-base'>Shop by Categories</h2>
 
             <div className='pd-2 sm:mx-20 flex flex-row justify-around flex-wrap items-center sm:mx-20 '>
                 {

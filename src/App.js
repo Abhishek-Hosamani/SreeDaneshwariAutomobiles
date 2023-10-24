@@ -4,12 +4,13 @@ import { Home } from './Pages/Home/Home';
 import ItemCard from './Components/ItemCard';
 import { Categories } from './Pages/Categories/Categories';
 import Adminadd from './Pages/Admin/Adminadd';
-import { Product } from './Pages/Products/Product';
+import Adminedit from './Pages/Admin/Adminedit';
+
 
 function App() {
   return (
     <>
-      <Product />
+
     </>
   );
 }
