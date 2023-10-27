@@ -5,6 +5,7 @@ import Tubeimg from '../../Assets/TubelessTyre.png'
 import CategoryCard from '../../Components/CategoryCard'
 import Carousel from '../../Components/Carousel'
 import Footer from '../../Components/Footer'
+import { Link } from 'react-router-dom'
 export const Home = () => {
 
     const Categories = [
@@ -44,7 +45,7 @@ export const Home = () => {
                 {
                     Categories.map(cat => {
                         return (
-                            <CategoryCard Name={cat.Name} image={cat.Img} />
+                            <Link to='category'><CategoryCard Name={cat.Name} image={cat.Img} /></Link>
                         )
                     })
                 }

@@ -4,6 +4,7 @@ import TrolleyImg from '../../Assets/trolley Spares.png'
 import Tubeimg from '../../Assets/TubelessTyre.png'
 import ItemCard from '../../Components/ItemCard'
 import Footer from '../../Components/Footer'
+import { Link } from 'react-router-dom'
 
 export const Categories = () => {
 
@@ -11,23 +12,27 @@ export const Categories = () => {
         {
             Name: "Trolley Spares",
             Img: TrolleyImg,
-
+            id: 1
         },
         {
             Name: "Tubeless Tyres",
             Img: Tubeimg,
+            cat: 2
         },
         {
             Name: "Trolley Spares",
             Img: TrolleyImg,
+            cat: 3
         },
         {
             Name: "Tubeless Tyres",
             Img: Tubeimg,
+            cat: 4
         },
         {
             Name: "Trolley Spares",
             Img: TrolleyImg,
+            cat: 5
         }
 
     ]
@@ -36,11 +41,13 @@ export const Categories = () => {
     return (
         <div className=''>
             <Header />
-            <div className='pd-2 sm:mx-20 flex flex-row justify-around flex-wrap items-center sm:mx-20 '>
+            <div className='pd-2 sm:mx-20 flex flex-row justify-around flex-wrap items-center mx-auto '>
                 {
                     Categories.map(cat => {
                         return (
-                            <ItemCard Name={cat.Name} image={cat.Img} />
+                            <>
+                                <Link to='product'><ItemCard Name={cat.Name} image={cat.Img} /></Link>
+                            </>
                         )
                     })
                 }

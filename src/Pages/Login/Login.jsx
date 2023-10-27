@@ -1,14 +1,19 @@
 import React from 'react'
 import './../Login/Login.css'
+import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 const Login = () => {
+    const navigate = useNavigate();
     return (
         <div className='Loginbody'>
-            <div className='absolute top-5 left-10 sm:top-10 sm:left-20'>
-                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
-                    <path d="M5.6875 12.1875H21.9375C22.153 12.1875 22.3597 12.2731 22.512 12.4255C22.6644 12.5778 22.75 12.7845 22.75 13C22.75 13.2155 22.6644 13.4222 22.512 13.5745C22.3597 13.7269 22.153 13.8125 21.9375 13.8125H5.6875C5.47201 13.8125 5.26535 13.7269 5.11298 13.5745C4.9606 13.4222 4.875 13.2155 4.875 13C4.875 12.7845 4.9606 12.5778 5.11298 12.4255C5.26535 12.2731 5.47201 12.1875 5.6875 12.1875Z" fill="white" />
-                    <path d="M6.02386 13L12.7627 19.7372C12.9153 19.8898 13.001 20.0967 13.001 20.3125C13.001 20.5282 12.9153 20.7352 12.7627 20.8877C12.6102 21.0403 12.4032 21.126 12.1875 21.126C11.9717 21.126 11.7648 21.0403 11.6122 20.8877L4.29974 13.5752C4.22407 13.4998 4.16404 13.4101 4.12308 13.3114C4.08212 13.2127 4.06104 13.1069 4.06104 13C4.06104 12.8931 4.08212 12.7873 4.12308 12.6886C4.16404 12.5899 4.22407 12.5002 4.29974 12.4247L11.6122 5.11224C11.7648 4.95967 11.9717 4.87396 12.1875 4.87396C12.4032 4.87396 12.6102 4.95967 12.7627 5.11224C12.9153 5.2648 13.001 5.47173 13.001 5.68749C13.001 5.90325 12.9153 6.11017 12.7627 6.26274L6.02386 13Z" fill="white" />
-                </svg>
-            </div>
+            <Link to='../'>
+                <div className='absolute top-5 left-10 sm:top-10 sm:left-20'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+                        <path d="M5.6875 12.1875H21.9375C22.153 12.1875 22.3597 12.2731 22.512 12.4255C22.6644 12.5778 22.75 12.7845 22.75 13C22.75 13.2155 22.6644 13.4222 22.512 13.5745C22.3597 13.7269 22.153 13.8125 21.9375 13.8125H5.6875C5.47201 13.8125 5.26535 13.7269 5.11298 13.5745C4.9606 13.4222 4.875 13.2155 4.875 13C4.875 12.7845 4.9606 12.5778 5.11298 12.4255C5.26535 12.2731 5.47201 12.1875 5.6875 12.1875Z" fill="white" />
+                        <path d="M6.02386 13L12.7627 19.7372C12.9153 19.8898 13.001 20.0967 13.001 20.3125C13.001 20.5282 12.9153 20.7352 12.7627 20.8877C12.6102 21.0403 12.4032 21.126 12.1875 21.126C11.9717 21.126 11.7648 21.0403 11.6122 20.8877L4.29974 13.5752C4.22407 13.4998 4.16404 13.4101 4.12308 13.3114C4.08212 13.2127 4.06104 13.1069 4.06104 13C4.06104 12.8931 4.08212 12.7873 4.12308 12.6886C4.16404 12.5899 4.22407 12.5002 4.29974 12.4247L11.6122 5.11224C11.7648 4.95967 11.9717 4.87396 12.1875 4.87396C12.4032 4.87396 12.6102 4.95967 12.7627 5.11224C12.9153 5.2648 13.001 5.47173 13.001 5.68749C13.001 5.90325 12.9153 6.11017 12.7627 6.26274L6.02386 13Z" fill="white" />
+                    </svg>
+                </div>
+            </Link>
             <div className='flex flex-col justify-center w-auto items-center min-h-screen'>
                 <div className='w-2/5'>
                     <div className='text-[#FFFFFF]'>
@@ -24,7 +29,7 @@ const Login = () => {
 
                         <input className="p-2 bg-[#0286D0] text-[#FFF] outline-none placeholder-white text-sm sm:text-base " type='text' placeholder="Username" name='em-username' /><br></br>
                         <input className="p-2 bg-[#0286D0] text-[#FFF]  outline-none placeholder-white text-sm sm:text-base" type='password' placeholder='Password' name='password' />
-                        <button className='w-auto text-[#0286D0] rounded bg-[#FFF] p-2 mt-4'>Login</button>
+                        <button className='w-auto text-[#0286D0] rounded bg-[#FFF] p-2 mt-4' onClick={() => navigate('/admin')}>Login</button>
                         <a className='underline mt-5 text-[#FFF] text-center underline-offset-4 text-sm sm:text-base'>Forget password</a>
                     </div>
                 </div>

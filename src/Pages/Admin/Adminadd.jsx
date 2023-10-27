@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import trolley from '../../Assets/trolley Spares.png'
-
+import { useNavigate } from 'react-router-dom';
 
 const Adminadd = () => {
     const [selectedImage, setSelectedImage] = useState(null);
-
+    const navigate = useNavigate();
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         if (file) {
@@ -70,7 +70,7 @@ const Adminadd = () => {
 
                     </form>
 
-                    <button className='text-[#FF0000] sm:w-2/12 w-3/12 border-2 border-[#FF0000] p-2 rounded mt-4 mx-auto '>Logout</button>
+                    <button className='text-[#FF0000] sm:w-2/12 w-3/12 border-2 border-[#FF0000] p-2 rounded mt-4 mx-auto hover:bg-[#FF0000] hover:text-white ' onClick={() => navigate('/')}>Logout</button>
                 </div>
 
             </div>
