@@ -58,7 +58,7 @@ const Adminedit = () => {
     ]
     return (
         <>
-            <Header />
+
             <div className='w-3/4 mx-auto flex flex-col jusitfy-center'>
                 {categoryedit.map((e) => {
                     return (
