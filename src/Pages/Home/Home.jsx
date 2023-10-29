@@ -12,23 +12,28 @@ export const Home = () => {
         {
             Name: "Trolley Spares",
             Img: TrolleyImg,
+            catId: 1
 
         },
         {
             Name: "Tubeless Tyres",
             Img: Tubeimg,
+            catId: 2
         },
         {
             Name: "Trolley Spares",
             Img: TrolleyImg,
+            catId: 3
         },
         {
             Name: "Tubeless Tyres",
             Img: Tubeimg,
+            catId: 4
         },
         {
             Name: "Trolley Spares",
             Img: TrolleyImg,
+            catId: 5
         }
 
     ]
@@ -39,13 +44,13 @@ export const Home = () => {
             <Header />
 
             <Carousel />
-            <h2 className='text-center mt-4 font-semibold text-xs sm:text-base'>Shop by Categories</h2>
+            <h2 className='text-center mt-4 font-semibold text-base sm:text-base'>Shop by Categories</h2>
 
             <div className='pd-2 sm:mx-20 flex flex-row justify-around flex-wrap items-center sm:mx-20 '>
                 {
                     Categories.map(cat => {
                         return (
-                            <Link to='category'><CategoryCard Name={cat.Name} image={cat.Img} /></Link>
+                            <Link to={`category/${cat.Name}`}><CategoryCard Name={cat.Name} image={cat.Img} /></Link>
                         )
                     })
                 }

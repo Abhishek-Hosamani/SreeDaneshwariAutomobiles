@@ -1,7 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
 import { Home } from './Pages/Home/Home';
-import ItemCard from './Components/ItemCard';
 import { Categories } from './Pages/Categories/Categories';
 import Adminadd from './Pages/Admin/Adminadd';
 import Adminedit from './Pages/Admin/Adminedit';
@@ -14,7 +12,7 @@ import Product from './Pages/Products/Product'
 function App() {
   return (
     <>
-      {/* <Login /> */}
+
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='cart' element={<Cart />} />
@@ -24,7 +22,10 @@ function App() {
           <Route path='addproduct' element={<Adminadd />} />
           <Route path='edit' element={<Adminedit />} />
         </Route>
-        <Route path='category' element={<Categories />} />
+        <Route path='category' element={<Categories />}>
+          <Route path=':catName' element={<Categories />} />
+        </Route>
+
         <Route path='category/product' element={<Product />} />
       </Routes>
 

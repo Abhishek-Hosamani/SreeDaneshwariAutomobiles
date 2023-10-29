@@ -4,8 +4,8 @@ const ProductCard = (props) => {
   console.log(props.image);
   return (
     <>
-      <div className="mx-auto">
-        <div className="">
+      <div className="mx-auto w-9/2">
+        <div className="flex flex-row justify-center">
           <img src={props.image} alt="Image Not Found" className='w-[123] h-96 sm:w-[135] sm:h-[175] object-cover mix-blend-multiply' />
         </div>
 

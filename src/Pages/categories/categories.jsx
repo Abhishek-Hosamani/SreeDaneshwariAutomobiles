@@ -5,7 +5,7 @@ import Tubeimg from '../../Assets/TubelessTyre.png'
 import ItemCard from '../../Components/ItemCard'
 import Footer from '../../Components/Footer'
 import { Link } from 'react-router-dom'
-
+import { useParams } from 'react-router-dom'
 export const Categories = () => {
 
     const Categories = [
@@ -36,11 +36,16 @@ export const Categories = () => {
         }
 
     ]
-
+    const params = useParams();
+    const categoryName = params.catName;
 
     return (
         <div className=''>
             <Header />
+
+            <div className='' >
+                <h1 className='text-xs sm:text-base text-[#0286D0] font-semibold  sm:ml-32 ml-8 my-2'>Home &gt;  {categoryName}</h1>
+            </div>
             <div className='pd-2 sm:mx-20 flex flex-row justify-around flex-wrap items-center mx-auto '>
                 {
                     Categories.map(cat => {
