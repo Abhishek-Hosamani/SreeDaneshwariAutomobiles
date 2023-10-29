@@ -44,9 +44,10 @@ export const Home = () => {
             <Header />
 
             <Carousel />
-            <h2 className='text-center mt-4 font-semibold text-base sm:text-base'>Shop by Categories</h2>
 
-            <div className='pd-2 sm:mx-20 flex flex-row justify-around flex-wrap items-center sm:mx-20 '>
+            <h2 className='text-center mt-4 font-semibold text-base sm:text-2xl'>Shop by Categories</h2>
+
+            <div className='pd-2 sm:mx-20 flex flex-row justify-around flex-wrap items-center mx-28 '>
                 {
                     Categories.map(cat => {
                         return (
