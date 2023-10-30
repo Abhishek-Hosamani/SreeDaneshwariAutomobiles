@@ -6,9 +6,10 @@ import ItemCard from '../../Components/ItemCard'
 import Footer from '../../Components/Footer'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
+
 const Categories = () => {
 
-    const Categories = [
+    const Category = [
         {
             Name: "Trolley Spares",
             Img: TrolleyImg,
@@ -48,7 +49,7 @@ const Categories = () => {
             </div>
             <div className='pd-2 sm:mx-20 flex flex-row justify-around flex-wrap items-center mx-auto '>
                 {
-                    Categories.map(cat => {
+                    Category.map(cat => {
                         return (
                             <>
                                 <Link to='product'><ItemCard Name={cat.Name} image={cat.Img} /></Link>
