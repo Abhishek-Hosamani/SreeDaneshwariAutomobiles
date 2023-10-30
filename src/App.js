@@ -1,6 +1,6 @@
 import './App.css';
 import { Home } from './Pages/Home/Home';
-import { Categories } from './Pages/Categories/Categories';
+import Categories from './Pages/Categories/Categories'
 import Adminadd from './Pages/Admin/Adminadd';
 import Adminedit from './Pages/Admin/Adminedit';
 import Admin from './Pages/Admin/Adminnav';

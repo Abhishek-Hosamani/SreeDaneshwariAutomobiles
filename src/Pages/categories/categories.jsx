@@ -6,7 +6,7 @@ import ItemCard from '../../Components/ItemCard'
 import Footer from '../../Components/Footer'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
-export const Categories = () => {
+const Categories = () => {
 
     const Categories = [
         {
@@ -63,3 +63,5 @@ export const Categories = () => {
         </div>
     )
 }
+
+export default Categories;
