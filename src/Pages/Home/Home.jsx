@@ -1,12 +1,12 @@
 import React from 'react'
-import { Header } from '../../Components/Header'
+import Header from '../../Components/Header'
 import TrolleyImg from '../../Assets/trolley Spares.png'
 import Tubeimg from '../../Assets/TubelessTyre.png'
 import CategoryCard from '../../Components/CategoryCard'
 import Carousel from '../../Components/Carousel'
 import Footer from '../../Components/Footer'
 import { Link } from 'react-router-dom'
-export const Home = () => {
+const Home = () => {
 
     const Categories = [
         {
@@ -74,3 +74,5 @@ export const Home = () => {
         </div>
     )
 }
+
+export default Home;

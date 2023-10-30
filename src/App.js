@@ -1,10 +1,10 @@
 import './App.css';
-import { Home } from './Pages/Home/Home';
+import Home from './Pages/Home/Home';
 import Adminadd from './Pages/Admin/Adminadd';
 import Adminedit from './Pages/Admin/Adminedit';
 import Admin from './Pages/Admin/Adminnav';
 import { Routes, Route } from 'react-router-dom'
-import { Cart } from './Pages/Cart/Cart'
+import Cart from './Pages/Cart/Cart'
 import Login from './Pages/Login/Login'
 import Product from './Pages/Products/Product'
 import Categories from './Pages/Categories/Categories'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header } from '../../Components/Header'
+import Header from '../../Components/Header'
 import TrolleyImg from '../../Assets/trolley Spares.png'
 import Tubeimg from '../../Assets/TubelessTyre.png'
 import ItemCard from '../../Components/ItemCard'

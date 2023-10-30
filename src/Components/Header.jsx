@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
-export const Header = () => {
+const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const toggleSearchBar = () => {
         setIsOpen(!isOpen);
@@ -44,3 +44,4 @@ export const Header = () => {
         </div >
     )
 }
+export default Header;

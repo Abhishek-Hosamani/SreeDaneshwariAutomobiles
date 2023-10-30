@@ -1,9 +1,7 @@
 import React from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
-import { Header } from '../../Components/Header'
-import Adminadd from './Adminadd'
-import Adminedit from './Adminedit'
-import { Routes, Route } from 'react-router-dom'
+import Header from '../../Components/Header'
+
 import './../Admin/Adminnav.css'
 const Admin = () => {
     return (

@@ -1,11 +1,11 @@
 import React from 'react'
-import { Header } from '../../Components/Header'
+import Header from '../../Components/Header'
 import TrolleyImg from '../../Assets/trolley Spares.png'
 import Tubeimg from '../../Assets/TubelessTyre.png'
 import Footer from '../../Components/Footer'
 import CartCard from '../../Components/CartCard'
 
-export const Cart = () => {
+const Cart = () => {
 
     const Categories = [
         {
@@ -38,3 +38,5 @@ export const Cart = () => {
         </div>
     )
 }
+
+export default Cart;
