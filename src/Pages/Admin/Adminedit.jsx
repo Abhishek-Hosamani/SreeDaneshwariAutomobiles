@@ -1,6 +1,6 @@
 import React from 'react'
 import { Icon } from '@iconify/react';
-import { Header } from '../../Components/Header';
+
 const Adminedit = () => {
 
     const categoryedit = [
@@ -75,8 +75,8 @@ const Adminedit = () => {
                                             </div>
 
                                             <div className='flex flex-row justify-between mx-auto gap-x-4 align-middle'>
-                                                <div><a><Icon icon="iconamoon:edit-duotone" color="#0286d0" className='w-5 h-5 sm:w-8 sm:h-8' /></a></div>
-                                                <div><a><Icon icon="ic:baseline-delete" color="#0286d0" className='w-5 h-5 sm:w-8 sm:h-8' /></a></div>
+                                                <div><a href='/'><Icon icon="iconamoon:edit-duotone" color="#0286d0" className='w-5 h-5 sm:w-8 sm:h-8' /></a></div>
+                                                <div><a href='/'><Icon icon="ic:baseline-delete" color="#0286d0" className='w-5 h-5 sm:w-8 sm:h-8' /></a></div>
                                             </div>
                                         </div>
                                     );

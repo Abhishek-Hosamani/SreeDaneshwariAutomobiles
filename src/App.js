@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import Home from './Pages/Home/Home';
 import Adminadd from './Pages/Admin/Adminadd';
@@ -24,7 +25,6 @@ function App() {
         <Route path='category' element={<Categories />}>
           <Route path=':catName' element={<Categories />} />
         </Route>
-
         <Route path='category/product' element={<Product />} />
       </Routes>
 
