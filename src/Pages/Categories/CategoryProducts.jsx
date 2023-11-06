@@ -4,7 +4,7 @@ import TrolleyImg from '../../Assets/trolley Spares.png'
 import Tubeimg from '../../Assets/TubelessTyre.png'
 import ItemCard from '../../Components/ItemCard'
 import Footer from '../../Components/Footer'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 
 const Categories = () => {

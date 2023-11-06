@@ -8,8 +8,6 @@ import { CategoriesList } from './ListCategories'
 const Home = () => {
 
 
-
-
     return (
         <div className=''>
             <Header />
