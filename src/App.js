@@ -8,7 +8,7 @@ import { Routes, Route } from 'react-router-dom'
 import Cart from './Pages/Cart/Cart'
 import Login from './Pages/Login/Login'
 import Product from './Pages/Products/Individualproduct'
-import Categories from './Pages/Categories/Categories'
+import Categories from './Pages/Categories/CategoryProducts'
 function App() {
   return (
     <>
