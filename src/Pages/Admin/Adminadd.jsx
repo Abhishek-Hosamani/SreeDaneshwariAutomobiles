@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import trolley from '../../Assets/trolley Spares.png'
 import { useNavigate } from 'react-router-dom';
 
 const Adminadd = () => {
     const [selectedImage, setSelectedImage] = useState(null);
+    const [selectedCategory, setSelectedCategory] = useState(null);
     const navigate = useNavigate();
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -20,6 +20,11 @@ const Adminadd = () => {
     const clearSelectedImage = () => {
         setSelectedImage(null);
     };
+    const Categorylist = ['TubelessTyre Values', 'Lubricants', 'Rotovator Parts', 'Trolley Spares']
+    const handleCatChange = (e) => {
+        setSelectedCategory(e.target.value)
+        console.log(e.target.value)
+    }
 
     return (
         <>
@@ -47,7 +52,7 @@ const Adminadd = () => {
                     <div>
                         {selectedImage && (
                             <div className='mt-4 mx-auto sm:mx-16 flex flex-row justify-between items-center sm:w-5/6 w-4/6 h-16 border-[0.5px] rounded-md bg-[#F2F2F2] px-4'>
-                                <img src={selectedImage} alt='Selected Image' className='w-12 h-8  ' />
+                                <img src={selectedImage} alt='Selected img' className='w-12 h-8  ' />
                                 <svg xmlns="http://www.w3.org/2000/svg" onClick={clearSelectedImage} width="25" height="25" viewBox="0 0 18 18" fill="none">
                                     <path d="M15 3.75C15.1989 3.75 15.3897 3.82902 15.5303 3.96967C15.671 4.11032 15.75 4.30109 15.75 4.5C15.75 4.69891 15.671 4.88968 15.5303 5.03033C15.3897 5.17098 15.1989 5.25 15 5.25H14.25L14.2477 5.30325L13.548 15.1065C13.5211 15.4849 13.3517 15.8391 13.0741 16.0977C12.7965 16.3563 12.4311 16.5 12.0518 16.5H5.9475C5.5681 16.5 5.2028 16.3563 4.92516 16.0977C4.64753 15.8391 4.47819 15.4849 4.45125 15.1065L3.7515 5.304C3.75036 5.28602 3.74986 5.26801 3.75 5.25H3C2.80109 5.25 2.61032 5.17098 2.46967 5.03033C2.32902 4.88968 2.25 4.69891 2.25 4.5C2.25 4.30109 2.32902 4.11032 2.46967 3.96967C2.61032 3.82902 2.80109 3.75 3 3.75H15ZM12.7477 5.25H5.25225L5.94825 15H12.0518L12.7477 5.25ZM10.5 1.5C10.6989 1.5 10.8897 1.57902 11.0303 1.71967C11.171 1.86032 11.25 2.05109 11.25 2.25C11.25 2.44891 11.171 2.63968 11.0303 2.78033C10.8897 2.92098 10.6989 3 10.5 3H7.5C7.30109 3 7.11032 2.92098 6.96967 2.78033C6.82902 2.63968 6.75 2.44891 6.75 2.25C6.75 2.05109 6.82902 1.86032 6.96967 1.71967C7.11032 1.57902 7.30109 1.5 7.5 1.5H10.5Z" fill="#888888" />
                                 </svg>
@@ -62,7 +67,17 @@ const Adminadd = () => {
                         <label htmlFor='Productname' className='mt-1'>Product Name</label><br></br>
                         <input className="p-2 outline-[#9D9D9D] " type='text' id='Produtname' name='ProductName' placeholder='Ex: Tubeless Values'></input>
                         <label htmlFor='Category' className='mt-1'>Category</label><br></br>
-                        <input className="p-2 outline-[#9D9D9D]" type='text' id='Category' name='Category' placeholder='Category'></input>
+                        <select className="p-2 outline-[#9D9D9D]" required name="selectedCategory" id="Category" onChange={handleCatChange}>
+                            <option value="">Select a Category</option>
+                            {
+                                Categorylist.map((c, ind) => {
+                                    return (
+
+                                        <option key={ind} value={c}>{c}</option>
+                                    )
+                                })
+                            }
+                        </select>
                         <label htmlFor='Description' className='mt-1'>Description</label><br></br>
                         <textarea name="Description" id="Description" cols="30" rows="5" className='p-2 outline-[#9D9D9D]' placeholder='Add Product Description'></textarea>
 

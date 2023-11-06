@@ -7,8 +7,8 @@ import Admin from './Pages/Admin/Adminnav';
 import { Routes, Route } from 'react-router-dom'
 import Cart from './Pages/Cart/Cart'
 import Login from './Pages/Login/Login'
-// import Product from './Pages/Products/Product'
-// import Categories from './Pages/Categories/Categories'
+import Product from './Pages/Products/Product'
+import Categories from './Pages/Categories/Categories'
 function App() {
   return (
     <>
@@ -22,10 +22,10 @@ function App() {
           <Route path='addproduct' element={<Adminadd />} />
           <Route path='edit' element={<Adminedit />} />
         </Route>
-        {/* <Route path='category' element={<Categories />}>
+        <Route path='category' element={<Categories />}>
           <Route path=':catName' element={<Categories />} />
-        </Route> */}
-        {/* <Route path='category/product' element={<Product />} /> */}
+        </Route>
+        <Route path='category/product' element={<Product />} />
       </Routes>
 
 

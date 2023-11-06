@@ -1,42 +1,13 @@
 import React from 'react'
 import Header from '../../Components/Header'
-import TrolleyImg from '../../Assets/trolley Spares.png'
-import Tubeimg from '../../Assets/TubelessTyre.png'
 import CategoryCard from '../../Components/CategoryCard'
 import Carousel from '../../Components/Carousel'
 import Footer from '../../Components/Footer'
 import { Link } from 'react-router-dom'
+import { CategoriesList } from './ListCategories'
 const Home = () => {
 
-    const Categories = [
-        {
-            Name: "Trolley Spares",
-            Img: TrolleyImg,
-            catId: 1
 
-        },
-        {
-            Name: "Tubeless Tyres",
-            Img: Tubeimg,
-            catId: 2
-        },
-        {
-            Name: "Trolley Spares",
-            Img: TrolleyImg,
-            catId: 3
-        },
-        {
-            Name: "Tubeless Tyres",
-            Img: Tubeimg,
-            catId: 4
-        },
-        {
-            Name: "Trolley Spares",
-            Img: TrolleyImg,
-            catId: 5
-        }
-
-    ]
 
 
     return (
@@ -49,7 +20,7 @@ const Home = () => {
 
             <div className='pd-2 sm:mx-20 flex flex-row justify-around flex-wrap items-center mx-28 '>
                 {
-                    Categories.map(cat => {
+                    CategoriesList.map(cat => {
                         return (
                             <Link to={`category/${cat.Name}`}><CategoryCard Name={cat.Name} image={cat.Img} /></Link>
                         )
@@ -60,7 +31,7 @@ const Home = () => {
 
             <div className='pd-2 sm:mx-20 flex flex-row justify-around flex-wrap items-center sm:mx-20 hidden sm:flex'>
                 {
-                    Categories.map(cat => {
+                    CategoriesList.map(cat => {
                         return (
                             <CategoryCard Name={cat.Name} image={cat.Img} />
                         )

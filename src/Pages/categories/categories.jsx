@@ -13,27 +13,27 @@ const Categories = () => {
         {
             Name: "Trolley Spares",
             Img: TrolleyImg,
-            id: 1
+            catid: 1
         },
         {
             Name: "Tubeless Tyres",
             Img: Tubeimg,
-            cat: 2
+            catid: 2
         },
         {
             Name: "Trolley Spares",
             Img: TrolleyImg,
-            cat: 3
+            catid: 3
         },
         {
             Name: "Tubeless Tyres",
             Img: Tubeimg,
-            cat: 4
+            catid: 4
         },
         {
             Name: "Trolley Spares",
             Img: TrolleyImg,
-            cat: 5
+            catid: 5
         }
 
     ]
@@ -52,7 +52,7 @@ const Categories = () => {
                     Category.map(cat => {
                         return (
                             <>
-                                <Link to='product'><ItemCard Name={cat.Name} image={cat.Img} /></Link>
+                                <ItemCard Name={cat.Name} image={cat.Img} id={cat.id} />
                             </>
                         )
                     })
