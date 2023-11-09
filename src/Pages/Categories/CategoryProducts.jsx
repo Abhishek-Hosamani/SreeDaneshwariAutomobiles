@@ -14,7 +14,7 @@ const Categories = () => {
     const categoryName = params.catName;
     useEffect(() => {
 
-        fetch(`http://localhost:5000/category/${categoryName}`, { method: "GET" }).then((response) => {
+        fetch('http://localhost:5000/category', { method: "GET" }).then((response) => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
