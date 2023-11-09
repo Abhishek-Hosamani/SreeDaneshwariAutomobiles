@@ -5,7 +5,7 @@ import Lubricants from '../../Assets/lubricants.jpg'
 import Rotovatorimg from '../../Assets/Rotovator.jpg'
 export const CategoriesList = [
     {
-        Name: "Tubelss and Tube Valve",
+        Name: "TubelessTyre Values",
         Img: TubelessVal,
         catId: 1
 

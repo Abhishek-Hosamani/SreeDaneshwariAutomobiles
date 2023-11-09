@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../../Components/Header'
 import TrolleyImg from '../../Assets/trolley Spares.png'
 import Tubeimg from '../../Assets/TubelessTyre.png'
@@ -8,37 +8,26 @@ import Footer from '../../Components/Footer'
 import { useParams } from 'react-router-dom'
 
 const Categories = () => {
-
-    const Category = [
-        {
-            Name: "Trolley Spares",
-            Img: TrolleyImg,
-            catid: 1
-        },
-        {
-            Name: "Tubeless Tyres",
-            Img: Tubeimg,
-            catid: 2
-        },
-        {
-            Name: "Trolley Spares",
-            Img: TrolleyImg,
-            catid: 3
-        },
-        {
-            Name: "Tubeless Tyres",
-            Img: Tubeimg,
-            catid: 4
-        },
-        {
-            Name: "Trolley Spares",
-            Img: TrolleyImg,
-            catid: 5
-        }
-
-    ]
+    const [data, setdata] = useState([]);
+    const [loading, setloading] = useState(true);
     const params = useParams();
     const categoryName = params.catName;
+    useEffect(() => {
+
+        fetch(`http://localhost:5000/category/${categoryName}`, { method: "GET" }).then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+
+        }).then((data) => {
+            setdata(data);
+            setloading(false);
+        })
+    }, [])
+
+    console.log(data);
+
 
     return (
         <div className=''>
@@ -49,13 +38,15 @@ const Categories = () => {
             </div>
             <div className='pd-2 sm:mx-20 flex flex-row justify-around flex-wrap items-center mx-auto '>
                 {
-                    Category.map(cat => {
+                    loading ? (<p>loading</p>) : (data.map((d) => {
                         return (
                             <>
-                                <ItemCard Name={cat.Name} image={cat.Img} id={cat.id} />
+                                <ItemCard Name={d.productName} image={d.image} desc={d.description} />
                             </>
                         )
                     })
+
+                    )
                 }
             </div>
 

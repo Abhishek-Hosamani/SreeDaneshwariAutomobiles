@@ -1,30 +1,69 @@
 import React, { useState } from 'react'
+// import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Adminadd = () => {
     const [selectedImage, setSelectedImage] = useState(null);
-    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [img64, setimg64] = useState('');
+    const [pname, setpname] = useState('');
+    const [catname, setcatname] = useState('');
+    const [desc, setdesc] = useState('');
     const navigate = useNavigate();
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         if (file) {
             const reader = new FileReader();
-
             reader.onload = (e) => {
                 setSelectedImage(e.target.result);
             };
-
             reader.readAsDataURL(file);
+            generatebase64(e.target.files[0]);
         }
     };
     const clearSelectedImage = () => {
         setSelectedImage(null);
     };
-    const Categorylist = ['TubelessTyre Values', 'Lubricants', 'Rotovator Parts', 'Trolley Spares']
-    const handleCatChange = (e) => {
-        setSelectedCategory(e.target.value)
-        console.log(e.target.value)
+    const Categorylist = ['TubelessTyre Values', 'Puncher Accesories', 'Lubricants', 'Rotovator Parts', 'Trolley Spares']
+    const generatebase64 = (e) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(e);
+        reader.onload = () => {
+            // console.log(reader.result);
+            setimg64(reader.result);
+        }
+
     }
+
+    const formSubmit = (e) => {
+        e.preventDefault();
+        const obj = {
+            productName: pname,
+            categoryName: catname,
+            description: desc,
+            image: img64
+        }
+        // productName,
+        // categoryName,
+        // description,
+        // console.log(obj);
+        fetch('http://localhost:5000/api/products', {
+            method: "POST",
+            crossDomain: true,
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                "Access-Control-Allow-Origin": "*",
+            },
+            body: JSON.stringify({ obj }),
+        }).then((res) => res.json()).then((data) => {
+            console.log(data)
+
+        });
+        window.alert('Data Sent Successfully !!');
+
+        window.location = '/admin'
+    }
+
 
     return (
         <>
@@ -35,7 +74,7 @@ const Adminadd = () => {
                             <input type='file' accept="image/*" className='hidden' id="InputDropzone" onChange={handleImageChange} />
                             <label className='' htmlFor="InputDropzone">
                                 <svg xmlns="http://www.w3.org/2000/svg" className='w-12 h-12 sm:w-24 sm:h-24' viewBox="0 0 71 70" fill="none">
-                                    <path d="M7.33667 45.9375L22.3838 30.8904C22.9931 30.281 23.7166 29.7976 24.5128 29.4678C25.309 29.138 26.1624 28.9683 27.0242 28.9683C27.886 28.9683 28.7393 29.138 29.5355 29.4678C30.3318 29.7976 31.0552 30.281 31.6646 30.8904L46.7117 45.9375M42.3367 41.5625L46.4463 37.4529C47.0556 36.8435 47.7791 36.3601 48.5753 36.0303C49.3715 35.7005 50.2249 35.5308 51.0867 35.5308C51.9485 35.5308 52.8018 35.7005 53.598 36.0303C54.3943 36.3601 55.1177 36.8435 55.7271 37.4529L64.2117 45.9375M11.7117 56.875H59.8367C60.997 56.875 62.1098 56.4141 62.9303 55.5936C63.7507 54.7731 64.2117 53.6603 64.2117 52.5V17.5C64.2117 16.3397 63.7507 15.2269 62.9303 14.4064C62.1098 13.5859 60.997 13.125 59.8367 13.125H11.7117C10.5513 13.125 9.43855 13.5859 8.61808 14.4064C7.79761 15.2269 7.33667 16.3397 7.33667 17.5V52.5C7.33667 53.6603 7.79761 54.7731 8.61808 55.5936C9.43855 56.4141 10.5513 56.875 11.7117 56.875ZM42.3367 24.0625H42.36V24.0858H42.3367V24.0625ZM43.4304 24.0625C43.4304 24.3526 43.3152 24.6308 43.1101 24.8359C42.905 25.041 42.6268 25.1563 42.3367 25.1563C42.0466 25.1563 41.7684 25.041 41.5633 24.8359C41.3582 24.6308 41.2429 24.3526 41.2429 24.0625C41.2429 23.7724 41.3582 23.4942 41.5633 23.2891C41.7684 23.084 42.0466 22.9688 42.3367 22.9688C42.6268 22.9688 42.905 23.084 43.1101 23.2891C43.3152 23.4942 43.4304 23.7724 43.4304 24.0625Z" stroke="#666666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M7.33667 45.9375L22.3838 30.8904C22.9931 30.281 23.7166 29.7976 24.5128 29.4678C25.309 29.138 26.1624 28.9683 27.0242 28.9683C27.886 28.9683 28.7393 29.138 29.5355 29.4678C30.3318 29.7976 31.0552 30.281 31.6646 30.8904L46.7117 45.9375M42.3367 41.5625L46.4463 37.4529C47.0556 36.8435 47.7791 36.3601 48.5753 36.0303C49.3715 35.7005 50.2249 35.5308 51.0867 35.5308C51.9485 35.5308 52.8018 35.7005 53.598 36.0303C54.3943 36.3601 55.1177 36.8435 55.7271 37.4529L64.2117 45.9375M11.7117 56.875H59.8367C60.997 56.875 62.1098 56.4141 62.9303 55.5936C63.7507 54.7731 64.2117 53.6603 64.2117 52.5V17.5C64.2117 16.3397 63.7507 15.2269 62.9303 14.4064C62.1098 13.5859 60.997 13.125 59.8367 13.125H11.7117C10.5513 13.125 9.43855 13.5859 8.61808 14.4064C7.79761 15.2269 7.33667 16.3397 7.33667 17.5V52.5C7.33667 53.6603 7.79761 54.7731 8.61808 55.5936C9.43855 56.4141 10.5513 56.875 11.7117 56.875ZM42.3367 24.0625H42.36V24.0858H42.3367V24.0625ZM43.4304 24.0625C43.4304 24.3526 43.3152 24.6308 43.1101 24.8359C42.905 25.041 42.6268 25.1563 42.3367 25.1563C42.0466 25.1563 41.7684 25.041 41.5633 24.8359C41.3582 24.6308 41.2429 24.3526 41.2429 24.0625C41.2429 23.7724 41.3582 23.4942 41.5633 23.2891C41.7684 23.084 42.0466 22.9688 42.3367 22.9688C42.6268 22.9688 42.905 23.084 43.1101 23.2891C43.3152 23.4942 43.4304 23.7724 43.4304 24.0625Z" stroke="#666666" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </label>
                         </div>
@@ -45,7 +84,7 @@ const Adminadd = () => {
                                     <path d="M11 16V7.85L8.4 10.45L7 9L12 4L17 9L15.6 10.45L13 7.85V16H11ZM6 20C5.45 20 4.979 19.804 4.587 19.412C4.195 19.02 3.99934 18.5493 4 18V15H6V18H18V15H20V18C20 18.55 19.804 19.021 19.412 19.413C19.02 19.805 18.5493 20.0007 18 20H6Z" fill="#0286D0" />
                                 </svg>
                             </span>
-                            <p className='mx-2 text-xs sm:text-base'>Drop Your Files Here or <label className="text-[#0286D0] underline underline-offset-4" for="InputDropzone">Browse</label></p>
+                            <p className='mx-2 text-xs sm:text-base'>Drop Your Files Here or <label className="text-[#0286D0] underline underline-offset-4" htmlFor="InputDropzone">Browse</label></p>
                         </div>
                     </div>
 
@@ -63,11 +102,11 @@ const Adminadd = () => {
                 <div className='mt-4 sm:w-3/4 flex flex-col'>
                     <h3 className='mx-auto font-semibold text-center'>Product Details</h3>
 
-                    <form action="" className='flex flex-col  sm:w-5/6 w-5/6 mx-auto font-medium'>
+                    <form onSubmit={formSubmit} className='flex flex-col  sm:w-5/6 w-5/6 mx-auto font-medium'>
                         <label htmlFor='Productname' className='mt-1'>Product Name</label><br></br>
-                        <input className="p-2 outline-[#9D9D9D] " type='text' id='Produtname' name='ProductName' placeholder='Ex: Tubeless Values'></input>
+                        <input className="p-2 outline-[#9D9D9D] " required type='text' value={pname} onChange={(e) => { setpname(e.target.value) }} id='Produtname' name='ProductName' placeholder='Ex: Tubeless Values'></input>
                         <label htmlFor='Category' className='mt-1'>Category</label><br></br>
-                        <select className="p-2 outline-[#9D9D9D]" required name="selectedCategory" id="Category" onChange={handleCatChange}>
+                        <select className="p-2 outline-[#9D9D9D]" required value={catname} onChange={(e) => { setcatname(e.target.value) }} name="selectedCategory" id="Category">
                             <option value="">Select a Category</option>
                             {
                                 Categorylist.map((c, ind) => {
@@ -78,10 +117,10 @@ const Adminadd = () => {
                                 })
                             }
                         </select>
-                        <label htmlFor='Description' className='mt-1'>Description</label><br></br>
-                        <textarea name="Description" id="Description" cols="30" rows="5" className='p-2 outline-[#9D9D9D]' placeholder='Add Product Description'></textarea>
+                        <label htmlFor='Description' className='mt-1' >Description</label><br></br>
+                        <textarea name="Desc" required id="Description" cols="30" rows="5" value={desc} onChange={(e) => { setdesc(e.target.value) }} className='p-2 outline-[#9D9D9D]' placeholder='Add Product Description'></textarea>
 
-                        <button className='bg-[#0286D0] sm:w-1/5 w-4/12 p-2 rounded text-white mt-4 mx-auto'>Publish</button>
+                        <button className='bg-[#0286D0] sm:w-1/5 w-4/12 p-2 rounded text-white mt-4 mx-auto' onClick={formSubmit} >Publish</button>
 
                     </form>
 
