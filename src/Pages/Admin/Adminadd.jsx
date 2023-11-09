@@ -56,7 +56,8 @@ const Adminadd = () => {
             },
             body: JSON.stringify({ obj }),
         }).then((res) => res.json()).then((data) => {
-            console.log(data)
+            console.log('datasent success')
+
 
         });
         window.alert('Data Sent Successfully !!');
