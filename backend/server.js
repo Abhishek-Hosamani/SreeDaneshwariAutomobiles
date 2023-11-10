@@ -53,3 +53,8 @@ app.get('/category', async (req, res) => {
 
     res.json(pr);
 })
+app.get('/', async (req, res) => {
+    res.status(200).json({
+        message: "successfully Running"
+    })
+})
