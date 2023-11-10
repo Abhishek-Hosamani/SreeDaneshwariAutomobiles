@@ -43,7 +43,7 @@ const ItemCard = (props) => {
             </h4>
           </div>
 
-          <div class="flex flex-col items-center mx-auto ">
+          <div className="flex flex-col items-center mx-auto ">
             <div className="flex flex-row h-8 mx-auto">
               <button onClick={decrement} disabled={quantity === 1} className="border-2  mb-1 bg-white w-7 text-blue-600 border-blue-400 border-solid hover:text-gray-700 hover:bg-gray-400 rounded-l cursor-pointer">
                 {quantity === 1 ? (
@@ -55,7 +55,7 @@ const ItemCard = (props) => {
               <p className="outline-none px-3 focus:outline-none text-center w-10 mb-1 border-solid border-2 font-semibold text-md border-blue-400 hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-blue-700">{quantity}</p>
               <button onClick={increment} className="border-2 bg-white w-7 mb-1 text-blue-600 border-solid hover:text-gray-700 border-blue-400 hover:bg-gray-400 rounded-r cursor-pointer">+</button>
             </div>
-            <button class="bg-blue-600 hover:bg-blue-400 text-center text-white font-semibold ml-2 mb-1 p-1.5 px-5 rounded text-xs  w-28">
+            <button className="bg-blue-600 hover:bg-blue-400 text-center text-white font-semibold ml-2 mb-1 p-1.5 px-5 rounded text-xs  w-28">
               Add to Cart
             </button>
 
