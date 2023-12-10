@@ -45,7 +45,7 @@ const Adminadd = () => {
         formData.append('description', desc);
 
         try {
-            const response = await fetch('https://vercel.com/abhishek-hosamani/sda-backend/GUUcx3axo7AzhXc7DoidmRAGR9mH/api/products', {
+            const response = await fetch('https://vercel.live/link/sda-backend-git-master-abhishek-hosamani.vercel.app?via=deployment-domains-list-branch', {
                 method: 'POST',
                 body: formData,
             });
