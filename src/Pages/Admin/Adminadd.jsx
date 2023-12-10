@@ -48,6 +48,7 @@ const Adminadd = () => {
             const response = await fetch('https://vercel.live/link/sda-backend-git-master-abhishek-hosamani.vercel.app?via=deployment-domains-list-branch', {
                 method: 'POST',
                 body: formData,
+                mode: 'no-cors'
             });
 
             if (response.ok) {
