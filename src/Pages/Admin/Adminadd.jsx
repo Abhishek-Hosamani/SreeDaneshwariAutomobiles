@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 // import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,6 +8,7 @@ const Adminadd = () => {
     const [pname, setpname] = useState('');
     const [catname, setcatname] = useState('');
     const [desc, setdesc] = useState('');
+    const fileInputRef = useRef(null);
     const navigate = useNavigate();
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -23,7 +24,7 @@ const Adminadd = () => {
     const clearSelectedImage = () => {
         setSelectedImage(null);
     };
-    const Categorylist = ['TubelessTyre Values', 'Puncher Accesories', 'Lubricants', 'Rotovator Parts', 'Trolley Spares']
+    const Categorylist = ['TubelessTyre Valves', 'Puncher Accesories', 'Lubricants', 'Rotovator Parts', 'Trolley Spares']
     const generatebase64 = (e) => {
         const reader = new FileReader();
         reader.readAsDataURL(e);
@@ -34,35 +35,56 @@ const Adminadd = () => {
 
     }
 
-    const formSubmit = (e) => {
+    const formSubmit = async (e) => {
         e.preventDefault();
-        const obj = {
-            productName: pname,
-            categoryName: catname,
-            description: desc,
-            image: img64
+        console.log(e);
+        const formData = new FormData();
+        formData.append('image', fileInputRef.current.files[0]);
+        formData.append('productName', pname);
+        formData.append('categoryName', catname);
+        formData.append('description', desc);
+
+        try {
+            const response = await fetch('https://vercel.com/abhishek-hosamani/sda-backend/GUUcx3axo7AzhXc7DoidmRAGR9mH/api/products', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log(data);
+                // Handle success, e.g., show a success message or redirect
+            } else {
+                console.log('Error:', response.status);
+                // Handle error, e.g., show an error message
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            // Handle unexpected errors
         }
-        // productName,
-        // categoryName,
-        // description,
-        // console.log(obj);
-        fetch('http://localhost:5000/api/products', {
-            method: "POST",
-            crossDomain: true,
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-                "Access-Control-Allow-Origin": "*",
-            },
-            body: JSON.stringify({ obj }),
-        }).then((res) => res.json()).then((data) => {
-            console.log('datasent success')
+        // const obj = {
+        //     productName: pname,
+        //     categoryName: catname,
+        //     description: desc,
+        //     image: img64
+        // }
+        // fetch('https://vercel.com/abhishek-hosamani/sda-backend/GUUcx3axo7AzhXc7DoidmRAGR9mH/api/products', {
+        //     method: "POST",
+        //     crossDomain: true,
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //         Accept: "application/json",
+        //         "Access-Control-Allow-Origin": "*",
+        //     },
+        //     body: JSON.stringify({ obj }),
+        // }).then((res) => res.json()).then((data) => {
+        //     console.log('datasent success')
 
 
-        });
-        window.alert('Data Sent Successfully !!');
+        // });
+        // window.alert('Data Sent Successfully !!');
 
-        window.location = '/admin'
+        // window.location = '/admin'
     }
 
 
@@ -104,6 +126,7 @@ const Adminadd = () => {
                     <h3 className='mx-auto font-semibold text-center'>Product Details</h3>
 
                     <form onSubmit={formSubmit} className='flex flex-col  sm:w-5/6 w-5/6 mx-auto font-medium'>
+                        <input type='file' accept="image/*" className='hidden' id="InputDropzone" ref={fileInputRef} onChange={handleImageChange} />
                         <label htmlFor='Productname' className='mt-1'>Product Name</label><br></br>
                         <input className="p-2 outline-[#9D9D9D] " required type='text' value={pname} onChange={(e) => { setpname(e.target.value) }} id='Produtname' name='ProductName' placeholder='Ex: Tubeless Values'></input>
                         <label htmlFor='Category' className='mt-1'>Category</label><br></br>

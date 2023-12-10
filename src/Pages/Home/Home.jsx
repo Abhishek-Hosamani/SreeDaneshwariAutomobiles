@@ -16,7 +16,7 @@ const Home = () => {
 
             <h2 className='text-center mt-4 font-semibold text-base sm:text-2xl'>Shop by Categories</h2>
 
-            <div className='pd-2 sm:mx-20 flex flex-row justify-around flex-wrap items-center mx-28 '>
+            <div className='pd-2 sm:mx-20 flex flex-row justify-around flex-wrap items-center mx-6 sm:mx-28 '>
                 {
                     CategoriesList.map(cat => {
                         return (
