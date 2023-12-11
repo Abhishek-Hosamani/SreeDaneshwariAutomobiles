@@ -11,7 +11,7 @@ export const CategoriesList = [
 
     },
     {
-        Name: "Puncher Accessories",
+        Name: "Puncher Accesories",
         Img: Puncherimg,
         catId: 2
     },
@@ -21,7 +21,7 @@ export const CategoriesList = [
         catId: 3
     },
     {
-        Name: "Rotovator parts",
+        Name: "Rotovator Parts",
         Img: Rotovatorimg,
         catId: 4
     },
