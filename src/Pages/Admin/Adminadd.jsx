@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-// import axios from 'axios';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Adminadd = () => {
@@ -43,25 +43,20 @@ const Adminadd = () => {
         formData.append('productName', pname);
         formData.append('categoryName', catname);
         formData.append('description', desc);
-
         try {
-            const response = await fetch('https://vercel.live/link/sda-backend-git-master-abhishek-hosamani.vercel.app?via=deployment-domains-list-branch', {
-                method: 'POST',
-                body: formData,
-                mode: 'no-cors'
-            });
+            const response = await axios.post('https://sda-backend-f0oxwwzyi-abhishek-hosamani.vercel.app/api/products', formData);
 
-            if (response.ok) {
-                const data = await response.json();
+            if (response.status === 200 || response.status === 201) {
+                const data = response.data;
                 console.log(data);
-                // Handle success, e.g., show a success message or redirect
+
             } else {
                 console.log('Error:', response.status);
-                // Handle error, e.g., show an error message
+
             }
         } catch (error) {
             console.error('Error:', error);
-            // Handle unexpected errors
+
         }
         // const obj = {
         //     productName: pname,
