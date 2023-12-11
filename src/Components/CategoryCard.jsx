@@ -1,7 +1,7 @@
 import React from 'react'
 
 const CategoryCard = (props) => {
-    console.log(props.image)
+
     return (
         <>  <div className='py-2'>
             <div className='pd-2 sm:m-4 sm:p-4 bg-[#FFF] w-28 sm:w-48  h-44 sm:h-64 flex flex-col jusitfy-around rounded-[5.602px] '>

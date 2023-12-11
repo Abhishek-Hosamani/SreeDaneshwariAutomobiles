@@ -11,6 +11,10 @@ const Adminadd = () => {
     const fileInputRef = useRef(null);
     const navigate = useNavigate();
     const handleImageChange = (e) => {
+
+        console.log('Image')
+        setimg64(e.target.files[0]);
+
         const file = e.target.files[0];
         if (file) {
             const reader = new FileReader();
@@ -18,37 +22,39 @@ const Adminadd = () => {
                 setSelectedImage(e.target.result);
             };
             reader.readAsDataURL(file);
-            generatebase64(e.target.files[0]);
         }
+
+
     };
     const clearSelectedImage = () => {
         setSelectedImage(null);
     };
     const Categorylist = ['TubelessTyre Valves', 'Puncher Accesories', 'Lubricants', 'Rotovator Parts', 'Trolley Spares']
-    const generatebase64 = (e) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(e);
-        reader.onload = () => {
-            // console.log(reader.result);
-            setimg64(reader.result);
-        }
 
-    }
 
     const formSubmit = async (e) => {
         e.preventDefault();
-        console.log(e);
+        const config = {
+            headers: {
+                "Content-Type": "multipart/form-data",
+            },
+        };
+
         const formData = new FormData();
-        formData.append('image', fileInputRef.current.files[0]);
+        formData.append('image', img64);
         formData.append('productName', pname);
         formData.append('categoryName', catname);
         formData.append('description', desc);
+
         try {
-            const response = await axios.post('https://sda-backend-f0oxwwzyi-abhishek-hosamani.vercel.app/api/products', formData);
+            const response = await axios.post('https://sda-backend-mfeu.onrender.com/api/products', formData, config);
 
             if (response.status === 200 || response.status === 201) {
                 const data = response.data;
                 console.log(data);
+                window.alert('Data Sent Successfully !!');
+
+                window.location = '/admin'
 
             } else {
                 console.log('Error:', response.status);
@@ -58,26 +64,7 @@ const Adminadd = () => {
             console.error('Error:', error);
 
         }
-        // const obj = {
-        //     productName: pname,
-        //     categoryName: catname,
-        //     description: desc,
-        //     image: img64
-        // }
-        // fetch('https://vercel.com/abhishek-hosamani/sda-backend/GUUcx3axo7AzhXc7DoidmRAGR9mH/api/products', {
-        //     method: "POST",
-        //     crossDomain: true,
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //         Accept: "application/json",
-        //         "Access-Control-Allow-Origin": "*",
-        //     },
-        //     body: JSON.stringify({ obj }),
-        // }).then((res) => res.json()).then((data) => {
-        //     console.log('datasent success')
 
-
-        // });
         // window.alert('Data Sent Successfully !!');
 
         // window.location = '/admin'
@@ -121,7 +108,7 @@ const Adminadd = () => {
                 <div className='mt-4 sm:w-3/4 flex flex-col'>
                     <h3 className='mx-auto font-semibold text-center'>Product Details</h3>
 
-                    <form onSubmit={formSubmit} className='flex flex-col  sm:w-5/6 w-5/6 mx-auto font-medium'>
+                    <form enctype="multipart/form-data" onSubmit={formSubmit} className='flex flex-col  sm:w-5/6 w-5/6 mx-auto font-medium'>
                         <input type='file' accept="image/*" className='hidden' id="InputDropzone" ref={fileInputRef} onChange={handleImageChange} />
                         <label htmlFor='Productname' className='mt-1'>Product Name</label><br></br>
                         <input className="p-2 outline-[#9D9D9D] " required type='text' value={pname} onChange={(e) => { setpname(e.target.value) }} id='Produtname' name='ProductName' placeholder='Ex: Tubeless Values'></input>
