@@ -47,14 +47,14 @@ const Categories = () => {
             </div>
             <div className='pd-2 sm:mx-20 flex flex-row justify-around flex-wrap items-center mx-auto '>
                 {loading ? (
-                    <p>Loading...</p>
+                    <p className='text-[#0286D0] font-semibold text-lg mt-8'>Loading...</p>
                 ) : (
                     data && data.length ? (
                         data.map((d) => (
                             <ItemCard key={d._id} Name={d.productName} image={d.image} desc={d.description} />
                         ))
                     ) : (
-                        <p>No data found.</p>
+                        <p className='text-[#0286D0] font-semibold text-lg mt-8'>No data found.</p>
                     )
                 )}
             </div>
