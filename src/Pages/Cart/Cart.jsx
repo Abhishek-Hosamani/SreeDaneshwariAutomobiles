@@ -14,7 +14,7 @@ const Cart = () => {
             const isConfirmed = window.confirm('Are you sure you want to place this order?');
 
             if (isConfirmed && cartItems.length > 0) {
-                const message = encodeURIComponent(`Order details:%0A${getFormattedCartDetails()}`);
+                const message = encodeURIComponent(`Order details:\n${getFormattedCartDetails()}`);
                 const whatsappLink = `https://wa.me/=91 8710074699?text=${message}`;
                 window.open(whatsappLink, '_blank');
             }
@@ -25,7 +25,7 @@ const Cart = () => {
 
     const getFormattedCartDetails = () => {
 
-        return cartItems.map(item => `${item.Name}: ${item.qty}`).join('%0A');
+        return cartItems.map(item => `${item.Name}: Qty: ${item.qty} \n`).join('%0A');
     };
 
     return (
