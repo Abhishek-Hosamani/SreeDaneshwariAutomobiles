@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const toggleSearchBar = () => {
         setIsOpen(!isOpen);
     };
+    const cartItems = useSelector(state => state.cart);
     return (
         <div className=''>
             <div className='flex flex-row  justify-around my-[1rem]'>
@@ -19,7 +21,13 @@ const Header = () => {
                     </div>
                     <div className='flex flex-row content-center items-center content-center gap-x-[0.2rem] '>
                         <Icon onClick={toggleSearchBar} icon="gg:search" color="#0070cd" width="25" height="25" className='w-[30px] h-[15] sm:w-[50px] sm:h-[30px] ' />
-                        <Link to='../cart'><Icon icon="fluent:cart-16-regular" color="#0070cd" width="25" height="25" className='w-[30px] h-[18] sm:w-[50px] sm:h-[30px] ' /></Link>
+                        <Link to='../cart'>
+                            <div className='relative'>
+                                <Icon icon="fluent:cart-16-regular" color="#0070cd" width="25" height="25" className='w-[30px] h-[18] sm:w-[50px] sm:h-[30px] ' />
+                                <span className='absolute top-[-8px] right-0 bg-red-500 text-white rounded-full px-1 py-0.5 text-xs text-center'>{cartItems.length}</span>
+                            </div>
+
+                        </Link>
                         <Link to='../login'><Icon icon="gg:profile" color="#0070cd" width="25" height="25" className='w-[30px] h-[15] sm:w-[50px] sm:h-[30px] ' /></Link>
                     </div>
                 </div>

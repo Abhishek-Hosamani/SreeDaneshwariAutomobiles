@@ -23,7 +23,6 @@ const Categories = () => {
             },
         };
         await axios(config).then((data) => {
-            console.log(data)
             setdata(data.data);
             setloading(false);
         }).catch((err) => {
