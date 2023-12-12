@@ -23,7 +23,7 @@ const CartCard = (props) => {
       <div className="py-2">
         <div className=" sm:w-[300] sm:h-[100]  sm:m-4 sm:p-4 bg-[#FFF]  h-auto flex flex-row  rounded-[5.602px] ">
           <div className=" p-2" >
-            <img src={props.image} alt="Image Not Found" className='border-black-600 border-solid border-2 w-28 h-32 sm:w-64 sm:h-56 object-cover mix-blend-multiply' />
+            <img src={props.image} alt="Image Not Found" className='border-2 w-28 h-32 sm:w-64 sm:h-56 object-cover mix-blend-multiply' />
           </div>
 
           <div className=" flex flex-col  ">
@@ -43,7 +43,7 @@ const CartCard = (props) => {
 
             <div className="py-2 p-2 ml-2 ">
               <p className="font-small hidden text-sm  sm:font-small sm:text-base sm:flex">
-                Lorem ipsum dolor sit
+                lorem
               </p>
             </div>
 
