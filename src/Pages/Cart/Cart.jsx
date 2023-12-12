@@ -25,7 +25,7 @@ const Cart = () => {
 
     const getFormattedCartDetails = () => {
 
-        return cartItems.map(item => `${item.Name}: Qty: ${item.qty} \n`).join('%0A');
+        return cartItems.map(item => `${item.Name}: Qty: ${item.qty} \n`).join('\n');
     };
 
     return (
