@@ -15,7 +15,7 @@ const Cart = () => {
 
             if (isConfirmed && cartItems.length > 0) {
                 const message = encodeURIComponent(`Order details:%0A${getFormattedCartDetails()}`);
-                const whatsappLink = `https://wa.me/6362197359?text=${message}`;
+                const whatsappLink = `https://wa.me/8710074699?text=${message}`;
                 window.open(whatsappLink, '_blank');
             }
         }
