@@ -1,9 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './../Login/Login.css'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 const Login = () => {
     const navigate = useNavigate();
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const handleLogin = () => {
+
+        if (username === '' || password === '') {
+            setError('Please Enter All The Credentials')
+        }
+        else if (username === 'nandish@123' && password === 'nandish@admin') {
+
+            navigate('/admin');
+        } else {
+            setUsername('')
+            setPassword('')
+            setError('Invalid credentials. Please try again.');
+            setTimeout(() => {
+                setError('');
+            }, 3000);
+        }
+    };
     return (
         <div className='Loginbody'>
             <Link to='../'>
@@ -14,10 +34,10 @@ const Login = () => {
                     </svg>
                 </div>
             </Link>
-            <div className='flex flex-col justify-center w-auto items-center min-h-screen'>
+            <div className='flex flex-col justify-center w-auto  items-center min-h-screen'>
                 <div className='w-2/5'>
                     <div className='text-[#FFFFFF]'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="125" height="68" viewBox="0 0 95 48" fill="none">
+                        <svg xmlns="http://www.w3.org/2000/svg" className='w-20 h-16 ' viewBox="0 0 95 48" fill="none">
                             <path d="M94.4595 36.0001H89.3657V23.7552C89.3657 22.7756 89.1697 21.845 88.7779 20.9634C88.4187 20.0817 87.9126 19.3307 87.2595 18.7103C86.6065 18.0573 85.8391 17.5511 84.9575 17.1919C84.1085 16.8001 83.1942 16.6042 82.2146 16.6042C81.235 16.6042 80.3044 16.8001 79.4228 17.1919C78.5738 17.5511 77.8228 18.0573 77.1697 18.7103C76.5167 19.3307 75.9942 20.0817 75.6024 20.9634C75.2432 21.845 75.0636 22.7756 75.0636 23.7552V36.0001H69.9697V23.7552C69.9371 22.0899 70.231 20.5226 70.8514 19.0532C71.5044 17.5511 72.3861 16.245 73.4963 15.1348C74.6065 14.0246 75.9126 13.143 77.4146 12.4899C78.9167 11.8368 80.5167 11.5103 82.2146 11.5103C83.9126 11.5103 85.5126 11.8368 87.0146 12.4899C88.5167 13.143 89.8228 14.0246 90.933 15.1348C92.0432 16.245 92.9085 17.5511 93.5289 19.0532C94.182 20.5226 94.4922 22.0899 94.4595 23.7552V36.0001Z" fill="white" />
                             <path d="M66.8286 36.0001H61.7837V11.5103H66.8286V36.0001ZM66.8286 6.36747H61.7837V5.28992L66.8286 0.196045V6.36747Z" fill="white" />
                             <path d="M58.1094 18.9062C58.4033 19.6572 58.6318 20.4409 58.7951 21.2572C58.9584 22.0736 59.04 22.9062 59.04 23.7552V38.8899C59.04 40.6858 58.6808 42.3511 57.9625 43.8858C57.2767 45.4532 56.3298 46.8083 55.1216 47.9511L51.3502 44.4736C52.1665 43.7878 52.8196 42.9552 53.3094 41.9756C53.7992 41.0287 54.0278 40.0001 53.9951 38.8899L53.9461 23.6572C53.9461 22.7429 53.7502 21.8123 53.3584 20.8654C53.2931 20.6695 53.2114 20.4899 53.1135 20.3266C53.0155 20.1307 52.9012 19.9185 52.7706 19.6899C52.1176 18.7103 51.2522 17.9429 50.1747 17.3878C49.1298 16.8001 47.9706 16.5062 46.6971 16.5062C45.7176 16.5062 44.8033 16.7021 43.9543 17.094C43.1053 17.4531 42.3543 17.9593 41.7012 18.6123C41.0482 19.2654 40.5257 20.0327 40.1339 20.9144C39.7747 21.7633 39.5951 22.6776 39.5951 23.6572C39.5951 24.6368 39.7747 25.5674 40.1339 26.4491C40.5257 27.3307 41.0482 28.098 41.7012 28.7511C42.3543 29.4042 43.1053 29.9266 43.9543 30.3185C44.8033 30.6776 45.7176 30.8572 46.6971 30.8572C47.0563 30.8572 47.3829 30.8572 47.6767 30.8572C47.9706 30.8246 48.2645 30.7593 48.5584 30.6613L49.7339 35.5593C49.2767 35.7225 48.7869 35.8368 48.2645 35.9021C47.7747 35.9674 47.2522 36.0001 46.6971 36.0001C45.1624 36.0001 43.6931 35.7225 42.289 35.1674C40.9175 34.6123 39.6767 33.845 38.5665 32.8654C37.489 31.8858 36.591 30.7429 35.8727 29.4368C35.1869 28.098 34.7624 26.6613 34.5992 25.1266C34.5339 24.8327 34.5012 24.5715 34.5012 24.3429C34.5012 24.1144 34.5012 23.8858 34.5012 23.6572C34.5012 21.9593 34.8114 20.3756 35.4318 18.9062C36.0849 17.4368 36.9665 16.147 38.0767 15.0368C39.1869 13.9266 40.4767 13.0613 41.9461 12.4409C43.4482 11.7878 45.0318 11.4613 46.6971 11.4613C47.9706 11.4613 49.1951 11.6409 50.3706 12.0001C51.5461 12.3593 52.6237 12.8817 53.6033 13.5674C54.6155 14.2205 55.4971 15.0042 56.2482 15.9184C57.0318 16.8327 57.6522 17.8287 58.1094 18.9062Z" fill="white" />
@@ -27,10 +47,12 @@ const Login = () => {
                     </div>
                     <div className='logincard flex flex-col justify-around  pt-6 '>
 
-                        <input className="p-2 bg-[#0286D0] text-[#FFF] outline-none placeholder-white text-sm sm:text-base " type='text' placeholder="Username" name='em-username' /><br></br>
-                        <input className="p-2 bg-[#0286D0] text-[#FFF]  outline-none placeholder-white text-sm sm:text-base" type='password' placeholder='Password' name='password' />
-                        <button className='w-auto text-[#0286D0] rounded bg-[#FFF] p-2 mt-4' onClick={() => navigate('/admin')}>Login</button>
-                        <a className='underline mt-5 text-[#FFF] text-center underline-offset-4 text-sm sm:text-base'>Forget password</a>
+                        <input value={username} onChange={(e) => setUsername(e.target.value)} className=" w-full p-2 bg-[#0286D0] text-[#FFF] outline-none placeholder-white text-sm sm:text-base " type='text' placeholder="Username" name='em-username' /><br></br>
+                        <input value={password} onChange={(e) => setPassword(e.target.value)} className="w-full p-2 bg-[#0286D0] text-[#FFF]  outline-none placeholder-white text-sm sm:text-base" type='password' placeholder='Password' name='password' />
+                        <button onClick={handleLogin} className='w-auto text-[#0286D0] rounded bg-[#FFF] p-2 mt-4'>Login</button>
+
+                        {error && <p className="text-red-400 mt-2 text-center font-semibold">{error}</p>}
+                        <a href='' className='underline mt-5 text-[#FFF] text-center underline-offset-4 text-sm sm:text-base'>Forget password</a>
                     </div>
                 </div>
             </div>

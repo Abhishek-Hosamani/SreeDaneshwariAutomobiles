@@ -3,6 +3,8 @@ import TubelessVal from '../../Assets/TublessValve.jpg'
 import Puncherimg from '../../Assets/PuncherAccessories.jpg'
 import Lubricants from '../../Assets/lubricants.jpg'
 import Rotovatorimg from '../../Assets/Rotovator.jpg'
+import Tyreintube from '../../Assets/Tyreintube.jpg'
+import Flapimg from '../../Assets/Flap.jpg'
 export const CategoriesList = [
     {
         Name: "TubelessTyre Valves",
@@ -27,8 +29,18 @@ export const CategoriesList = [
     },
     {
         Name: "Trolley Spares",
-        Img: TrolleyImg,
+        Img: Tyreintube,
         catId: 5
+    },
+    {
+        Name: "Tyre In Tube",
+        Img: TrolleyImg,
+        catId: 6
+    },
+    {
+        Name: "Flaps",
+        Img: Flapimg,
+        catId: 7
     }
 
 ]

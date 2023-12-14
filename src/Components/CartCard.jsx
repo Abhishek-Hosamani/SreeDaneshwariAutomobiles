@@ -1,23 +1,32 @@
 import React, { useState, useEffect } from "react";
 import { Icon } from '@iconify/react';
 import { removeFromCart } from '../actions/cartActions'
+import { updateQuantity } from "../actions/cartActions";
 import { useDispatch } from 'react-redux';
 const CartCard = (props) => {
   const [quantity, setQuantity] = useState(1);
-
+  console.log(props)
   const increment = () => {
     setQuantity(quantity + 1);
+    const newQuantity = quantity + 1;
+    handleQuantityChange(newQuantity);
   };
 
   const decrement = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
+      const newQuantity = quantity - 1;
+      handleQuantityChange(newQuantity);
     }
   };
   useEffect(() => {
     setQuantity(props.qty);
   }, [props.qty]);
 
+  const handleQuantityChange = (newQuantity) => {
+    setQuantity(newQuantity);
+    dispatch(updateQuantity(props.Name, newQuantity));
+  };
   const clearQuantity = () => {
     setQuantity(0); // You can set it to 1 if you want to reset it to 1 instead
   };
@@ -31,7 +40,7 @@ const CartCard = (props) => {
       <div className="py-2">
         <div className=" sm:w-[300] sm:h-[100]  sm:m-4 sm:p-4 bg-[#FFF]  h-auto flex flex-row  rounded-[5.602px] ">
           <div className=" p-2" >
-            <img src={props.image} alt="Image Not Found" className='rounded-sm w-28 h-32 sm:w-64 sm:h-56 object-cover mix-blend-multiply' />
+            <img src={props.image} alt="Image Not Found" className='rounded-sm w-28 h-32 sm:w-42 sm:h-42 object-cover mix-blend-multiply' />
           </div>
 
           <div className=" flex flex-col justify-around  ">

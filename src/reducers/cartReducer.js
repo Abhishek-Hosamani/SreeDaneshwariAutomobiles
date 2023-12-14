@@ -8,16 +8,24 @@ const cartReducer = (state = [], action) => {
                 console.log(state);
                 return state.map(product =>
                     product.Name === action.payload.Name
-                        ? { ...product, quantity: product.quantity + action.payload.quantity }
+                        ? { ...product, qty: product.qty + action.payload.qty }
                         : product
                 );
             } else {
                 // If not, add the new product with quantity 1
-                return [...state, { ...action.payload, quantity: action.payload.quantity }];
+                return [...state, { ...action.payload, qty: action.payload.qty }];
             }
 
         case 'REMOVE_FROM_CART':
             return state.filter(product => product.Name !== action.payload);
+
+        case 'UPDATE_QUANTITY':
+            return state.map(product =>
+                product.Name === action.payload.productName
+                    ? { ...product, qty: action.payload.quantity }
+                    : product
+            );
+
         default:
             return state;
     }

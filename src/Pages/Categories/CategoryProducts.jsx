@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../../Components/Header'
-import TrolleyImg from '../../Assets/trolley Spares.png'
-import Tubeimg from '../../Assets/TubelessTyre.png'
 import ItemCard from '../../Components/ItemCard'
 import Footer from '../../Components/Footer'
-// import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
+import NoProductimage from '../../Assets/NoProductFound.png'
 import axios from "axios"
 
 const Categories = () => {
@@ -53,7 +51,10 @@ const Categories = () => {
                             <ItemCard key={d._id} Name={d.productName} image={d.image} desc={d.description} />
                         ))
                     ) : (
-                        <p className='text-[#0286D0] font-semibold text-lg mt-8'>No data found.</p>
+                        <div className='text-[#0286D0] font-semibold text-lg mt-8 flex flex-col items-center'>
+                            <img src={NoProductimage} alt="No Product Found" className="w-36 h-36 mb-4 mt-5" />
+
+                        </div>
                     )
                 )}
             </div>

@@ -8,14 +8,14 @@ import { useSelector } from 'react-redux';
 const Cart = () => {
     const cartItems = useSelector(state => state.cart);
     const handlePlaceOrder = () => {
-        if (cartItems.length == 0) {
+        if (cartItems.length === 0) {
             window.alert('Cart is Empty')
         } else {
             const isConfirmed = window.confirm('Are you sure you want to place this order?');
 
             if (isConfirmed && cartItems.length > 0) {
                 const message = encodeURIComponent(`Order details:\n${getFormattedCartDetails()}`);
-                const whatsappLink = `https://wa.me/=91 8710074699?text=${message}`;
+                const whatsappLink = `https://wa.me/+918710074699?text=${message}`;
                 window.open(whatsappLink, '_blank');
             }
         }

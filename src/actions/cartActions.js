@@ -12,3 +12,10 @@ export const removeFromCart = (productName) => {
         payload: productName
     };
 };
+
+export const updateQuantity = (productName, quantity) => {
+    return {
+        type: 'UPDATE_QUANTITY',
+        payload: { productName, quantity }
+    };
+};

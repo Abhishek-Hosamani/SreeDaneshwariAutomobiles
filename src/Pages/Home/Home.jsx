@@ -25,17 +25,9 @@ const Home = () => {
                     })
                 }
             </div>
-            <h2 className='text-center font-semibold text-xs sm:text-base hidden sm:block'>Products</h2>
 
-            <div className='pd-2 sm:mx-20 flex flex-row justify-around flex-wrap items-center sm:mx-20 hidden sm:flex'>
-                {
-                    CategoriesList.map(cat => {
-                        return (
-                            <CategoryCard Name={cat.Name} image={cat.Img} />
-                        )
-                    })
-                }
-            </div>
+
+
 
 
             <Footer />

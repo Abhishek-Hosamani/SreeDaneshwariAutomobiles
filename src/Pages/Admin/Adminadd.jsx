@@ -29,7 +29,7 @@ const Adminadd = () => {
     const clearSelectedImage = () => {
         setSelectedImage(null);
     };
-    const Categorylist = ['TubelessTyre Valves', 'Puncher Accesories', 'Lubricants', 'Rotovator Parts', 'Trolley Spares']
+    const Categorylist = ['TubelessTyre Valves', 'Puncher Accesories', 'Lubricants', 'Rotovator Parts', 'Trolley Spares', 'Tyre In Tube', 'Flaps']
 
 
     const formSubmit = async (e) => {

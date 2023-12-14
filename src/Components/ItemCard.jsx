@@ -28,6 +28,7 @@ const ItemCard = (props) => {
       qty: quantity,
     }
     dispatch(addToCart(cartitem));
+    setQuantity(1)
     window.alert('Item Added to Cart !!')
   };
   return (
