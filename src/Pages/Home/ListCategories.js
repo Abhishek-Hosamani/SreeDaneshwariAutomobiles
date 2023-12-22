@@ -1,4 +1,4 @@
-import TrolleyImg from '../../Assets/trolley Spares.png'
+import TrolleyImg from '../../Assets/trolley Spares.jpg'
 import TubelessVal from '../../Assets/TublessValve.jpg'
 import Puncherimg from '../../Assets/PuncherAccessories.jpg'
 import Lubricants from '../../Assets/lubricants.jpg'
@@ -29,12 +29,12 @@ export const CategoriesList = [
     },
     {
         Name: "Trolley Spares",
-        Img: Tyreintube,
+        Img: TrolleyImg,
         catId: 5
     },
     {
         Name: "Tyre In Tube",
-        Img: TrolleyImg,
+        Img: Tyreintube,
         catId: 6
     },
     {
